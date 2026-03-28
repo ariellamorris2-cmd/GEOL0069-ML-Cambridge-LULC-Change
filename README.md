@@ -296,7 +296,7 @@ lower F1 scores for these classes across all models
 ## Contact
 
 Ariella Morris - ariella.morris.23@ucl.ac.uk / ariellamorris2@gmail.com
-Project Link: https://github.com/ariellamorris2-cmd/GEOL0069-Cambridge-LULC-Change
+Project Link: https://github.com/ariellamorris2-cmd/GEOL0069-ML-Cambridge-LULC-Change
 
 ---
 
