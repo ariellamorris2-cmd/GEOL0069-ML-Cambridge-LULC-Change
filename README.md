@@ -293,6 +293,31 @@ lower F1 scores for these classes across all models
 
 ---
 
+## Contact
+
+Ariella Morris - ariella.morris.23@ucl.ac.uk / ariellamorris2@gmail.com
+Project Link: https://github.com/ariellamorris2-cmd/GEOL0069-Cambridge-LULC-Change
+
+---
+
+## Acknowledgements
+
+This project was created for GEOL0069 — AI for Earth Observation at the University 
+College London. I would like to thank Dr Michel Tsamados and Weibin Chen for 
+their teaching, guidance, and for designing a module that encouraged genuinely 
+original thinking about the intersection of machine learning and environmental 
+monitoring.
+
+The dual environmental framing of this project — using AI to detect AI 
+infrastructure, and then measuring the cost of doing so — emerged directly from 
+the course's emphasis on critical engagement with the environmental impact of 
+computational methods. I am grateful for that prompt.
+
+ESA WorldCover data was used under an open licence. Sentinel-1 and Sentinel-2 
+imagery was accessed via Google Earth Engine under the Copernicus Open Data Policy.
+
+---
+
 ## References
 
 ESA Sentinel-2 Mission. European Space Agency. https://sentinel.esa.int
