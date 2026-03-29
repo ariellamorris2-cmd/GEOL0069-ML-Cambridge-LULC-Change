@@ -237,7 +237,7 @@ ESA WorldCover labels are downloaded automatically within `03_labelling.ipynb`.
 
 ### Running the Pipeline
 
-Run notebooks in order: `00` → `01` → `02` → `03` → `04` → `05` → `06`
+Run notebooks in order: `00` → `01` → `02` → `03` → `04` → `05` → `06` → `07`
 
 All notebooks are designed for Google Colab. File paths point to Google Drive 
 at `GEOL0069/Project/Data/` — update these if running locally.
