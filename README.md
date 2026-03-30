@@ -121,9 +121,24 @@ at separating metal warehouse rooftops from bare soil.
 Together they separate classes that either sensor alone confuses.
 
 <p align="center">
-  <img src="outputs/sentinel2_diagram.png" width="800"/>
+  <img src="outputs/sentinel2_diagram.png" width="800"style="border: 2px solid black;"/>
   <br>
   <em>Figure 1. How Sentinel-2 distinguishes land cover types through spectral reflectance. Sunlight illuminates each surface, which reflects a unique combination of wavelengths back to the satellite's Multispectral Instrument (MSI). Forest canopy reflects strongly in near-infrared (B8, 842 nm), water absorbs most incoming radiation, and impervious surfaces such as concrete and metal reflect strongly in shortwave infrared (B11, 1610 nm). The MSI records these differences across 13 spectral bands (443–2190 nm), producing a spectral fingerprint for each pixel that underpins the NDVI, NDWI and NDBI indices used in this study. Optical imagery is blocked by cloud cover and unavailable at night, necessitating complementary Sentinel-1 SAR data.</em>
+</p>
+
+<p align="center">
+  <img src="outputs/sentinel1_diagram.png" width="800" style="border: 2px solid black;"/>
+  <br>
+  <em>Figure 2. How Sentinel-1 SAR distinguishes built-up surfaces from 
+  agricultural land through radar backscatter. Unlike optical sensors, the 
+  satellite's C-band radar pulses (5.6 cm wavelength) penetrate cloud cover 
+  and illuminate the surface regardless of weather or time of day. Metal 
+  warehouse rooftops produce strong VV backscatter due to their rough, highly 
+  reflective surface geometry, while smooth cropfield surfaces scatter the radar 
+  signal away from the sensor, returning a weak signal. The contrast between 
+  these backscatter intensities allows the model to detect built-up expansion 
+  even when Sentinel-2 optical imagery is obscured by cloud — making the two 
+  sensors complementary across all four epochs.</em>
 </p>
 
 ### Spectral Indices
@@ -201,7 +216,7 @@ Architecture: ResNet18-inspired encoder-decoder with skip connections.
 Input: 15-feature stack per pixel. Training: 20 epochs on Colab T4 GPU.
 
 <p align="center">
-  <img src="outputs/unet_diagram.png" width="800"/>
+  <img src="outputs/unet_diagram.png" width="800"style="border: 2px solid black;"/>
   <br>
   <em>Figure 3. U-Net implementation pipeline for land cover classification across the Cambridge A14 corridor. The 15-feature input stack (10 Sentinel-2 optical features and 5 Sentinel-1 SAR features) is tiled into 64×64 pixel patches and split 70/30 along a hard spatial boundary to prevent data leakage. The U-Net encoder-decoder architecture learns spatial context across the patch neighbourhood, with skip connections preserving fine-grained boundary detail through the bottleneck. The trained model is applied consistently across all four epochs (2019, 2021, 2023, 2025), producing a per-pixel classification into six land cover classes. Change detection by direct map comparison yields a total conversion of 35.32 km² from agricultural and greenfield land to built-up/urban between 2019 and 2025, at a rate of approximately 5.9 km² per year.</em>
 </p>
