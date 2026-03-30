@@ -1,9 +1,11 @@
 <h3 align="center">The Footprint of Intelligence</h3>
 <h3 align="center">AI-Assisted Land Cover Change Detection — Cambridge A14 Corridor, 2019–2025</h3>
 
-![Classification Animation](outputs/classification_animated.gif)
+<p align="center">
+  <img src="outputs/classification_animated.gif" width="800"/>
+</p>
 
-> *"This is what the AI economy looks like from 786 kilometres above the Earth."*
+> *"This is what the AI economy looks like from 786 kilometres above the Earth." - Ariella Morris, 2026*
 
 This project deploys a machine learning pipeline to detect and quantify the physical 
 expansion of AI infrastructure — data centres, logistics warehouses, and industrial 
@@ -127,7 +129,7 @@ Together they separate classes that either sensor alone confuses.
 </p>
 
 <p align="center">
-  <img src="outputs/sentinel1_diagram.png" width="800" style="border: 2px solid black;"/>
+  <img src="outputs/sentinel1_diagram.png" width="800"/>
   <br>
   <em>Figure 2. How Sentinel-1 SAR distinguishes built-up surfaces from 
   agricultural land through radar backscatter. Unlike optical sensors, the 
