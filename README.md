@@ -117,6 +117,12 @@ at separating metal warehouse rooftops from bare soil.
 
 Together they separate classes that either sensor alone confuses.
 
+<p align="center">
+  <img src="outputs/sentinel2_diagram.png" width="800"/>
+  <br>
+  <em>Figure 1. How Sentinel-2 distinguishes land cover types through spectral reflectance. Sunlight illuminates each surface, which reflects a unique combination of wavelengths back to the satellite's Multispectral Instrument (MSI). Forest canopy reflects strongly in near-infrared (B8, 842 nm), water absorbs most incoming radiation, and impervious surfaces such as concrete and metal reflect strongly in shortwave infrared (B11, 1610 nm). The MSI records these differences across 13 spectral bands (443–2190 nm), producing a spectral fingerprint for each pixel that underpins the NDVI, NDWI and NDBI indices used in this study. Optical imagery is blocked by cloud cover and unavailable at night, necessitating complementary Sentinel-1 SAR data.</em>
+</p>
+
 ### Spectral Indices
 
 Five spectral indices were calculated from Sentinel-2:
