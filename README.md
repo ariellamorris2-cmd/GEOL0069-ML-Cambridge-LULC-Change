@@ -328,16 +328,27 @@ Results suggest that the pipeline could be deployed operationally to monitor AI 
 
 ### Limitations
 
-- WorldCover 2020 labels used as ground truth for earlier epochs — label accuracy 
-in peri-urban transition zones may be lower than in clearly defined classes
-- A single seasonal composite per epoch introduces phenological variation 
-(particularly visible in the 2025 image which captured more post-harvest fields)
-- The U-Net was trained on 2025 labels and applied to earlier epochs — spectral 
-differences between seasons may introduce some inconsistency in absolute area 
-statistics. The transition matrix (2019 vs 2025 directly compared) is more 
-reliable than per-epoch area totals
-- Water and wetland classes are underrepresented in the study area, leading to 
-lower F1 scores for these classes across all models
+Ground truth labels are derived from ESA WorldCover 2020 and applied across all 
+four epochs. In peri-urban transition zones — precisely the areas of greatest 
+interest in this study — label accuracy is likely lower than in clearly defined 
+classes such as open water or dense woodland, and this uncertainty propagates into 
+all three models.
+
+A single summer median composite per epoch introduces phenological variation that 
+is not fully controlled for. This is most visible in the 2025 image, which captured 
+a higher proportion of post-harvest fields, potentially inflating the bare soil and 
+cropland classes relative to earlier epochs. The transition matrix comparing 2019 
+and 2025 directly is therefore more reliable than per-epoch area totals.
+
+The U-Net was trained on 2025 labels and applied retrospectively to earlier epochs. 
+Spectral differences between seasons and years may introduce minor inconsistencies 
+in absolute area statistics, though the relative change signal — particularly the 
+growth of the built-up class — is robust across all three models.
+
+Water and wetland classes are underrepresented within the study area, which results 
+in lower F1 scores for these classes across all models. This does not materially 
+affect the primary finding of built-up expansion but should be noted for any 
+application of this pipeline to wetter landscapes.
 
 ### Future Directions
 
