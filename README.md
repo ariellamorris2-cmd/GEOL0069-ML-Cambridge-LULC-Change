@@ -25,9 +25,12 @@ embodied carbon of the infrastructure it found.
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Interactive Map](#interactive-map)
-- [Environmental Impact](#environmental-impact)
-- [Limitations](#limitations)
+- [Environmental Analysis](#environmental-analysis)
+- [Discussion and Implications](#discussion-and-implications)
+   - [Limitations](#limitations)
 - [Video Walkthrough](#video-walkthrough)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 - [References](#references)
 
 ---
@@ -339,6 +342,7 @@ lower F1 scores for these classes across all models
 ### Future Directions
 
 Incorporating Sentinel-1 coherence change detection alongside backscatter intensity could improve discrimination between construction phases and operational facilities. Expanding the temporal resolution from four epochs to annual composites would sharpen the change rate estimate and reduce attribution uncertainty. Testing transferability to other UK logistics and data centre clusters — Slough, Swindon, Milton Keynes — would validate whether the spectral signatures learned here generalise across similar built-up expansion patterns. Burn severity equivalents in this context would be quantitative impervious surface fraction mapping, enabling finer-grained assessment of ecological fragmentation.
+
 
 ### Conclusion
 
