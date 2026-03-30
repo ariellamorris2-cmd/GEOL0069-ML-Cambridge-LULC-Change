@@ -39,6 +39,31 @@ land to AI-related infrastructure across the Cambridge A14 corridor between 2019
 and 2025, and what is the environmental cost of the detection pipeline compared to 
 the infrastructure it detects?
 
+## The problem
+
+The global AI industry is expanding at a pace that outstrips our ability to measure it. 
+Data centres, logistics hubs, and AI infrastructure campuses are appearing across the 
+UK at speed — but traditional land cover monitoring relies on ground surveys that are 
+slow, expensive, and geographically limited. By the time a field team has mapped a site, 
+the next one is already under construction.
+
+The Cambridge A14 corridor is one of the fastest-growing AI infrastructure zones in 
+Europe. Between 2019 and 2025, a string of warehouse complexes, data centre campuses, 
+and logistics parks emerged across sites, including Bourn Airfield, Bar Hill, Swavesey, 
+and Waterbeach — quietly converting farmland and grassland at a rate that no published 
+land cover dataset has yet to be captured.
+
+This project asks a simple question: can satellite imagery and machine learning detect 
+that expansion automatically, accurately, and cheaply enough to make continuous 
+monitoring viable?
+
+To answer it, I combine Sentinel-1 SAR radar and Sentinel-2 multispectral imagery 
+across four time epochs — 2019, 2021, 2023, and 2025 — and apply three machine learning 
+classifiers to map land cover change at 10 m resolution across a 1,200 km² study area. 
+I then progress to ask a second question that the first makes unavoidable: what does it cost, in 
+carbon, to run this pipeline — and how does that compare to the infrastructure it is 
+detecting?
+
 ---
 
 ## Key Results
@@ -165,6 +190,12 @@ detection of the built-up class.
 
 Architecture: ResNet18-inspired encoder-decoder with skip connections.
 Input: 15-feature stack per pixel. Training: 20 epochs on Colab T4 GPU.
+
+<p align="center">
+  <img src="outputs/unet_diagram.png" width="800"/>
+  <br>
+  <em>Figure 2. U-Net implementation pipeline for land cover classification across the Cambridge A14 corridor. The 15-feature input stack (10 Sentinel-2 optical features and 5 Sentinel-1 SAR features) is tiled into 64×64 pixel patches and split 70/30 along a hard spatial boundary to prevent data leakage. The U-Net encoder-decoder architecture learns spatial context across the patch neighbourhood, with skip connections preserving fine-grained boundary detail through the bottleneck. The trained model is applied consistently across all four epochs (2019, 2021, 2023, 2025), producing a per-pixel classification into six land cover classes. Change detection by direct map comparison yields a total conversion of 35.32 km² from agricultural and greenfield land to built-up/urban between 2019 and 2025, at a rate of approximately 5.9 km² per year.</em>
+</p>
 
 ### Feature Stack
 
