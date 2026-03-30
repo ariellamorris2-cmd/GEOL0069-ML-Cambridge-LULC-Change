@@ -11,7 +11,7 @@ development — across the Cambridge A14 corridor between 2019 and 2025, using
 multi-temporal Sentinel-1 and Sentinel-2 satellite imagery.
 
 The project then turns the same accounting framework on itself, measuring the carbon, 
-energy, and water cost of the classifier doing the detecting — and comparing it to the 
+energy, and water cost of the classifier doing the detecting, and comparing it to the 
 embodied carbon of the infrastructure it found.
 
 ---
@@ -360,4 +360,4 @@ RICS (2023). Whole Life Carbon Assessment for the Built Environment.
 
 ---
 
-*GEOL0069 — AI for Earth Observation | University College London*
+GEOL0069 — AI for Earth Observation | University College London
