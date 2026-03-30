@@ -1,5 +1,5 @@
-# The Footprint of Intelligence
-### AI-Assisted Land Cover Change Detection — Cambridge A14 Corridor, 2019–2025
+<h3 align="center">The Footprint of Intelligence</h3>
+<h3 align="center">AI-Assisted Land Cover Change Detection — Cambridge A14 Corridor, 2019–2025</h3>
 
 ![Classification Animation](outputs/classification_animated.gif)
 
