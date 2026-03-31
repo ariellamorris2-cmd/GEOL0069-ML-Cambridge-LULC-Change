@@ -86,7 +86,7 @@ detecting?
 **Environmental finding:**
 - Pipeline carbon footprint: **0.106 kg CO₂eq**
 - Embodied carbon of detected infrastructure: **~15,894,000 tonnes CO₂eq**
-- The infrastructure being detected emits approximately **150 million times** more 
+- The infrastructure being detected emits approximately **150 billion times** more 
 carbon than the pipeline used to detect it
 
 ---
@@ -203,7 +203,10 @@ was performed by majority vote against WorldCover labels.
 ### Random Forest (Supervised Baseline)
 Random Forest trains an ensemble of 200 decision trees on labelled pixels from 
 ESA WorldCover 2020. It is interpretable — the feature importance plot reveals 
-which spectral indices drive classification decisions.
+which spectral indices drive classification decisions. Random Forest trains an ensemble of 200 decision trees on labelled pixels from 
+ESA WorldCover 2020. It is interpretable — the feature importance plot reveals 
+which spectral indices drive classification decisions. It serves as the supervised 
+baseline against which the U-Net is evaluated.
 
 Key hyperparameters: `n_estimators=200`, `max_depth=20`, `class_weight='balanced'`
 
@@ -260,6 +263,8 @@ footprint-of-intelligence/
 │   ├── classification_animated.gif
 │   ├── interactive_map.html
 │   ├── change_map_2019_2025.png
+│   ├── unet_confusion_matrix.png
+│   ├── unet_feature_importance.png
 │   ├── rf_confusion_matrix.png
 │   ├── rf_feature_importance.png
 │   └── area_statistics.png
@@ -369,7 +374,7 @@ application of this pipeline to wetter landscapes.
 
 ### Future Directions
 
-Incorporating Sentinel-1 coherence change detection alongside backscatter intensity could improve discrimination between construction phases and operational facilities. Expanding the temporal resolution from four epochs to annual composites would sharpen the change rate estimate and reduce attribution uncertainty. Testing transferability to other UK logistics and data centre clusters — Slough, Swindon, Milton Keynes — would validate whether the spectral signatures learned here generalise across similar built-up expansion patterns. Burn severity equivalents in this context would be quantitative impervious surface fraction mapping, enabling finer-grained assessment of ecological fragmentation.
+Incorporating Sentinel-1 coherence change detection alongside backscatter intensity could improve discrimination between construction phases and operational facilities. Expanding the temporal resolution from four epochs to annual composites would sharpen the change rate estimate and reduce attribution uncertainty. Testing transferability to other UK logistics and data centre clusters — Slough, Swindon, Milton Keynes — would validate whether the spectral signatures learned here generalise across similar built-up expansion patterns.
 
 
 ### Conclusion
