@@ -264,7 +264,7 @@ footprint-of-intelligence/
 │   ├── interactive_map.html
 │   ├── change_map_2019_2025.png
 │   ├── unet_confusion_matrix.png
-│   ├── unet_feature_importance.png
+│   ├── unet_feature_sensitivity.png
 │   ├── rf_confusion_matrix.png
 │   ├── rf_feature_importance.png
 │   └── area_statistics.png
