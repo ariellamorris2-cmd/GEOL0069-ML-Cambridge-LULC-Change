@@ -22,9 +22,9 @@ embodied carbon of the infrastructure it found.
 - [The Research Question](#the-research-question)
 - [Key Results](#key-results)
 - [Study Area](#study-area)
+- [Repository Structure](#repository-structure)
 - [Remote Sensing Methodology](#remote-sensing-methodology)
 - [Machine Learning Methodology](#machine-learning-methodology)
-- [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Interactive Map](#interactive-map)
 - [Environmental Analysis](#environmental-analysis)
@@ -88,6 +88,71 @@ detecting?
 - Embodied carbon of detected infrastructure: **~15,894,000 tonnes CO₂eq**
 - The infrastructure being detected emits approximately **150 billion times** more 
 carbon than the pipeline used to detect it
+
+---
+
+## Repository Structure
+```
+footprint-of-intelligence/
+├── README.md
+├── ENVIRONMENTAL_IMPACT.md
+├── environment.yml
+├── notebooks/
+│   ├── 00_data_download.ipynb
+│   ├── 01_preprocessing.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_labelling.ipynb
+│   ├── 04_models.ipynb
+│   ├── 05_change_detection.ipynb
+│   ├── 06_environmental_impact.ipynb
+│   └── 07_ visualisation.ipynb
+├── outputs/
+│   ├── classification_animated.gif
+│   ├── interactive_map.html
+│   ├── change_map_2019_2025.png
+│   ├── unet_confusion_matrix.png
+│   ├── unet_feature_sensitivity.png
+│   ├── rf_confusion_matrix.png
+│   ├── rf_feature_importance.png
+│   ├── summary_panel.png
+│   ├── area_statistics.png
+│   ├── sentinel1_diagram.png
+│   ├── sentinel2_diagram.png
+│   └── unet_diagram.png
+└── data/
+    └── README.md
+```
+---
+
+## Getting Started
+
+### Requirements
+```bash
+pip install earthengine-api rasterio scikit-learn torch torchvision 
+pip install folium imageio codecarbon scikit-image
+```
+
+Or use the provided environment file:
+```bash
+conda env create -f environment.yml
+conda activate footprint
+```
+
+### Data Access
+
+Raw Sentinel-1 and Sentinel-2 data is not included due to file size (~5 GB). 
+To reproduce the data download, run `00_data_download.ipynb` which queries 
+Google Earth Engine directly. A GEE account is required (free at 
+earthengine.google.com).
+
+ESA WorldCover labels are downloaded automatically within `03_labelling.ipynb`.
+
+### Running the Pipeline
+
+Run notebooks in order: `00` → `01` → `02` → `03` → `04` → `05` → `06` → `07`
+
+All notebooks are designed for Google Colab. File paths point to Google Drive 
+at `GEOL0069/Project/Data/` — update these if running locally.
 
 ---
 
@@ -242,72 +307,6 @@ Each pixel is described by 15 features:
 Training used the top 70% of the image (spatially); testing used the bottom 30%. 
 This prevents spatial autocorrelation from inflating accuracy scores — a critical 
 methodological step often overlooked in remote sensing ML studies.
-
----
-
-## Repository Structure
-```
-footprint-of-intelligence/
-├── README.md
-├── ENVIRONMENTAL_IMPACT.md
-├── environment.yml
-├── notebooks/
-│   ├── 00_data_download.ipynb
-│   ├── 01_preprocessing.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_labelling.ipynb
-│   ├── 04_models.ipynb
-│   ├── 05_change_detection.ipynb
-│   ├── 06_environmental_impact.ipynb
-│   └── 07_ visualisation.ipynb
-├── outputs/
-│   ├── classification_animated.gif
-│   ├── interactive_map.html
-│   ├── change_map_2019_2025.png
-│   ├── unet_confusion_matrix.png
-│   ├── unet_feature_sensitivity.png
-│   ├── rf_confusion_matrix.png
-│   ├── rf_feature_importance.png
-│   ├── summary_panel.png
-│   ├── area_statistics.png
-│   ├── sentinel1_diagram.png
-│   ├── sentinel2_diagram.png
-│   └── unet_diagram.png
-└── data/
-    └── README.md
-```
-
----
-
-## Getting Started
-
-### Requirements
-```bash
-pip install earthengine-api rasterio scikit-learn torch torchvision 
-pip install folium imageio codecarbon scikit-image
-```
-
-Or use the provided environment file:
-```bash
-conda env create -f environment.yml
-conda activate footprint
-```
-
-### Data Access
-
-Raw Sentinel-1 and Sentinel-2 data is not included due to file size (~5 GB). 
-To reproduce the data download, run `00_data_download.ipynb` which queries 
-Google Earth Engine directly. A GEE account is required (free at 
-earthengine.google.com).
-
-ESA WorldCover labels are downloaded automatically within `03_labelling.ipynb`.
-
-### Running the Pipeline
-
-Run notebooks in order: `00` → `01` → `02` → `03` → `04` → `05` → `06` → `07`
-
-All notebooks are designed for Google Colab. File paths point to Google Drive 
-at `GEOL0069/Project/Data/` — update these if running locally.
 
 ---
 
