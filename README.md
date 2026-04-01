@@ -258,7 +258,8 @@ footprint-of-intelligence/
 │   ├── 03_labelling.ipynb
 │   ├── 04_models.ipynb
 │   ├── 05_change_detection.ipynb
-│   └── 06_environmental_impact.ipynb
+│   ├── 06_environmental_impact.ipynb
+│   └── 07_ visualisation.ipynb
 ├── outputs/
 │   ├── classification_animated.gif
 │   ├── interactive_map.html
