@@ -267,7 +267,11 @@ footprint-of-intelligence/
 │   ├── unet_feature_sensitivity.png
 │   ├── rf_confusion_matrix.png
 │   ├── rf_feature_importance.png
-│   └── area_statistics.png
+│   ├── summary_panel.png
+│   ├── area_statistics.png
+│   ├── sentinel1_diagram.png
+│   ├── sentinel2_diagram.png
+│   └── unet_diagram.png
 └── data/
     └── README.md
 ```
