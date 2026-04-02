@@ -146,7 +146,8 @@ footprint-of-intelligence/
 │   ├── area_statistics.png
 │   ├── sentinel1_diagram.png
 │   ├── sentinel2_diagram.png
-│   └── unet_diagram.png
+│   ├── unet_diagram.png
+│   └── pipeline_flowchart.png
 └── data/
     └── README.md
 ```
