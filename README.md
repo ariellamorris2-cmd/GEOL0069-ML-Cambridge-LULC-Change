@@ -340,7 +340,10 @@ Each pixel is described by 15 features:
 
 Training used the top 70% of the image (spatially); testing used the bottom 30%. 
 This prevents spatial autocorrelation from inflating accuracy scores — a critical 
-methodological step often overlooked in remote sensing ML studies. 
+methodological step often overlooked in remote sensing ML studies. A comparison 
+between the spatially-validated Random Forest accuracy (75.8%) and naive random 
+pixel splitting (75.9%) confirms that the 15-feature spectral stack is genuinely 
+discriminative rather than reliant on spatial proximity.
 
 ---
 
