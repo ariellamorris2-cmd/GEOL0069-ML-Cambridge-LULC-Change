@@ -5,7 +5,7 @@
   <img src="outputs/classification_animated.gif" width="800"/>
 </p>
 
-> *"This is what the AI economy looks like from 786 kilometres above the Earth." - Ariella Morris, 2026*
+> *"This is what the AI economy looks like from 786 kilometres above the Earth." - Ariella Morris, 2026 (author)*
 
 This project deploys a machine learning pipeline to detect and quantify the physical 
 expansion of AI infrastructure — data centres, logistics warehouses, and industrial 
@@ -61,11 +61,12 @@ the infrastructure it detects?
 
 ## The problem
 
-The global AI industry is expanding at a pace that outstrips our ability to measure it. 
-Data centres, logistics hubs, and AI infrastructure campuses are appearing across the 
-UK at speed — but traditional land cover monitoring relies on ground surveys that are 
-slow, expensive, and geographically limited. By the time a field team has mapped a site, 
-the next one is already under construction.
+The physical infrastructure of the AI economy — data centres, logistics 
+networks, semiconductor facilities — is expanding faster than any existing 
+monitoring system can track. Global data centre capacity is projected to 
+double by 2030, yet the land use transformation this requires remains largely 
+invisible in published land cover datasets, which are updated infrequently 
+and at insufficient resolution to capture rapid peri-urban development.
 
 In Cambridgeshire, demand for logistics and industrial development has intensified rapidly along key transport corridors such as the A14, with major proposals emerging at sites including Bourn Airfield and Bar Hill (Greater Cambridge Shared Planning, 2023; Swavesey Parish Council, 2025). This reflects a broader UK trend towards increasingly large “big box” distribution centres, commonly exceeding 100,000 sq ft and in some cases surpassing 1 million sq ft (~93,000 m²) (Savills, 2024; Savills, 2025). Yet no satellite-derived land cover product captures this transition at sufficient spatial or temporal resolution to inform local planning decisions.
 
@@ -506,13 +507,14 @@ imagery was accessed via Google Earth Engine under the Copernicus Open Data Poli
 ## References
 
 Courty, V. et al. (2023). CodeCarbon: Estimate and Track Carbon Emissions from 
-Machine Learning Computing. *arXiv:2002.05651*
+Machine Learning Computing. *arXiv:2002.05651*.
 
 ESA Sentinel-2 Mission. European Space Agency. https://sentinel.esa.int
 
 ESA WorldCover 2020. https://esa-worldcover.org
 
-Greater Cambridge Shared Planning (2023) Employment and Housing Evidence Update. Cambridge: GCSPS.
+Greater Cambridge Shared Planning (2023). *Employment and Housing Evidence Update*. 
+Cambridge: GCSP.
 
 Liang, S. (2001). Narrowband to broadband conversions of land surface albedo. 
 *Remote Sensing of Environment*, 76(2), 213–238.
@@ -521,17 +523,21 @@ McFeeters, S.K. (1996). The use of the Normalized Difference Water Index (NDWI)
 in the delineation of open water features. *International Journal of Remote Sensing*, 
 17(7), 1425–1432.
 
-RICS (2023). Whole Life Carbon Assessment for the Built Environment.
+RICS (2023). *Whole Life Carbon Assessment for the Built Environment*. 
+London: Royal Institution of Chartered Surveyors.
 
 Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional networks 
-for biomedical image segmentation. *MICCAI 2015*.
+for biomedical image segmentation. *MICCAI 2015*, 234–241.
 
-South Cambridgeshire District Council (2019) Bourn Airfield New Village Supplementary Planning Document. Cambridge: SCDC.
+Savills (2024). *UK Big Shed Briefing*. London: Savills Research.
 
-Swavesey Parish Council (2025) Logistics/Warehousing Development Proposals along the A14. Available at: https://www.swavesey-pc.gov.uk
+Savills (2025). *UK Big Shed Briefing*. London: Savills Research.
 
+South Cambridgeshire District Council (2019). *Bourn Airfield New Village 
+Supplementary Planning Document*. Cambridge: SCDC.
 
-
+Swavesey Parish Council (2025). Logistics and warehousing development proposals 
+along the A14. Available at: https://www.swavesey-pc.gov.uk
 
 ---
 
