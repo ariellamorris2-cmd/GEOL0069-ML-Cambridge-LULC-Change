@@ -21,11 +21,11 @@ embodied carbon of the infrastructure it found.
 ## Table of Contents
 - [The Research Question](#the-research-question)
 - [Key Results](#key-results)
-- [Study Area](#study-area)
 - [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Study Area](#study-area)
 - [Remote Sensing Methodology](#remote-sensing-methodology)
 - [Machine Learning Methodology](#machine-learning-methodology)
-- [Getting Started](#getting-started)
 - [Interactive Map](#interactive-map)
 - [Environmental Analysis](#environmental-analysis)
 - [Discussion and Implications](#discussion-and-implications)
@@ -105,7 +105,7 @@ footprint-of-intelligence/
 │   ├── 04_models.ipynb
 │   ├── 05_change_detection.ipynb
 │   ├── 06_environmental_impact.ipynb
-│   └── 07_ visualisation.ipynb
+│   └── 07_visualisation.ipynb
 ├── outputs/
 │   ├── classification_animated.gif
 │   ├── interactive_map.html
@@ -268,8 +268,6 @@ was performed by majority vote against WorldCover labels.
 ### Random Forest (Supervised Baseline)
 Random Forest trains an ensemble of 200 decision trees on labelled pixels from 
 ESA WorldCover 2020. It is interpretable — the feature importance plot reveals 
-which spectral indices drive classification decisions. Random Forest trains an ensemble of 200 decision trees on labelled pixels from 
-ESA WorldCover 2020. It is interpretable — the feature importance plot reveals 
 which spectral indices drive classification decisions. It serves as the supervised 
 baseline against which the U-Net is evaluated.
 
@@ -277,7 +275,7 @@ Key hyperparameters: `n_estimators=200`, `max_depth=20`, `class_weight='balanced
 
 ### U-Net (Deep Learning)
 U-Net is a convolutional neural network originally designed for medical image 
-segmentation. Unlike Random Forest, which classifies each pixel independently, 
+segmentation (Ronneberger et al., 2015). Unlike Random Forest, which classifies each pixel independently, 
 U-Net processes 64×64 pixel patches — learning spatial context from neighbouring 
 pixels. This produces smoother, more coherent maps and significantly improves 
 detection of the built-up class.
@@ -330,9 +328,9 @@ Full analysis in [ENVIRONMENTAL_IMPACT.md](ENVIRONMENTAL_IMPACT.md)
 | Data downloaded | ~5 GB |
 | Equivalent driving distance | 0.5 km |
 
-The pipeline's carbon footprint is compared against the embodied carbon of the 
-35.32 km² of infrastructure detected — approximately 15.9 million tonnes CO₂eq. 
-The albedo decline from cropland (0.22) to warehouse rooftop (0.10) over the 
+Pipeline emissions were measured using CodeCarbon (Courty et al., 2023), 
+which tracks energy consumption and carbon intensity in real time during 
+model training and inference. The pipeline's carbon footprint is compared against the embodied carbon of the 35.32 km² of infrastructure detected — approximately 15.9 million tonnes CO₂eq (RICS, 2023). The albedo decline from cropland (0.22) to warehouse rooftop (0.10) (Liang, 2001) over the 
 converted area creates a local radiative forcing of +0.51 W/m², a permanent 
 biophysical warming signal detectable only through satellite remote sensing.
 
@@ -419,6 +417,9 @@ imagery was accessed via Google Earth Engine under the Copernicus Open Data Poli
 ---
 
 ## References
+
+Courty, V. et al. (2023). CodeCarbon: Estimate and Track Carbon Emissions from 
+Machine Learning Computing. *arXiv:2002.05651*
 
 ESA Sentinel-2 Mission. European Space Agency. https://sentinel.esa.int
 
