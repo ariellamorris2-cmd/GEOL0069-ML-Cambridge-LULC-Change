@@ -16,6 +16,21 @@ The project then turns the same accounting framework on itself, measuring the ca
 energy, and water cost of the classifier doing the detecting, and comparing it to the 
 embodied carbon of the infrastructure it found.
 
+<p align="center">
+  <img src="outputs/pipeline_flowchart.png" width="700"/>
+  <br>
+  <em>Figure 1. Complete methodology pipeline for AI infrastructure detection 
+  across the Cambridge A14 corridor. Sentinel-1 SAR and Sentinel-2 optical 
+  imagery are acquired for four epochs (2019, 2021, 2023, 2025) via Google 
+  Earth Engine, preprocessed to a 15-feature stack per pixel, and labelled 
+  using ESA WorldCover 2020 remapped to six land cover classes. Three 
+  classifiers of increasing complexity — K-Means (71.9%), Random Forest 
+  (75.8%), and U-Net (77.4%) — are evaluated against a hard spatial 
+  train/test boundary. U-Net change detection identifies 35.32 km² of 
+  built-up expansion between 2019 and 2025. The full pipeline produces 
+  105.7 g CO₂eq — approximately 150 billion times less than the embodied 
+  carbon of the infrastructure it detects.</em>
+</p>
 ---
 
 ## Table of Contents
@@ -52,11 +67,7 @@ UK at speed — but traditional land cover monitoring relies on ground surveys t
 slow, expensive, and geographically limited. By the time a field team has mapped a site, 
 the next one is already under construction.
 
-In Cambridgeshire alone, planning applications for logistics and industrial 
-development increased by over 300% between 2018 and 2023, with individual 
-warehouse footprints exceeding 100,000 m² at sites including Bourn Airfield 
-and Bar Hill — yet no satellite-derived land cover product captures this 
-transition at sufficient resolution or frequency to inform planning decisions.
+In Cambridgeshire, demand for logistics and industrial development has intensified rapidly along key transport corridors such as the A14, with major proposals emerging at sites including Bourn Airfield and Bar Hill (Greater Cambridge Shared Planning, 2023; Swavesey Parish Council, 2025). This reflects a broader UK trend towards increasingly large “big box” distribution centres, commonly exceeding 100,000 sq ft and in some cases surpassing 1 million sq ft (~93,000 m²) (Savills, 2024; Savills, 2025). Yet no satellite-derived land cover product captures this transition at sufficient spatial or temporal resolution to inform local planning decisions.
 
 The Cambridge A14 corridor is one of the fastest-growing AI infrastructure zones in 
 Europe. Between 2019 and 2025, a string of warehouse complexes, data centre campuses, 
@@ -207,13 +218,13 @@ Together they separate classes that either sensor alone confuses.
 <p align="center">
   <img src="outputs/sentinel2_diagram.png" width="800"style="border="2"/>
   <br>
-  <em>Figure 1. How Sentinel-2 distinguishes land cover types through spectral reflectance. Sunlight illuminates each surface, which reflects a unique combination of wavelengths back to the satellite's Multispectral Instrument (MSI). Forest canopy reflects strongly in near-infrared (B8, 842 nm), water absorbs most incoming radiation, and impervious surfaces such as concrete and metal reflect strongly in shortwave infrared (B11, 1610 nm). The MSI records these differences across 13 spectral bands (443–2190 nm), producing a spectral fingerprint for each pixel that underpins the NDVI, NDWI and NDBI indices used in this study. Optical imagery is blocked by cloud cover and unavailable at night, necessitating complementary Sentinel-1 SAR data.</em>
+  <em>Figure 2. How Sentinel-2 distinguishes land cover types through spectral reflectance. Sunlight illuminates each surface, which reflects a unique combination of wavelengths back to the satellite's Multispectral Instrument (MSI). Forest canopy reflects strongly in near-infrared (B8, 842 nm), water absorbs most incoming radiation, and impervious surfaces such as concrete and metal reflect strongly in shortwave infrared (B11, 1610 nm). The MSI records these differences across 13 spectral bands (443–2190 nm), producing a spectral fingerprint for each pixel that underpins the NDVI, NDWI and NDBI indices used in this study. Optical imagery is blocked by cloud cover and unavailable at night, necessitating complementary Sentinel-1 SAR data.</em>
 </p>
 
 <p align="center">
   <img src="outputs/sentinel1_diagram.png" width="800"/>
   <br>
-  <em>Figure 2. How Sentinel-1 SAR distinguishes built-up surfaces from 
+  <em>Figure 3. How Sentinel-1 SAR distinguishes built-up surfaces from 
   agricultural land through radar backscatter. Unlike optical sensors, the 
   satellite's C-band radar pulses (5.6 cm wavelength) penetrate cloud cover 
   and illuminate the surface regardless of weather or time of day. Metal 
@@ -272,15 +283,21 @@ Summer median composites (June–August) for four epochs:
 
 ## Machine Learning Methodology
 
-Three models of increasing complexity were compared:
+Three models of increasing complexity were compared. Before training, 
+ESA WorldCover's Dense urban class (class 7) was merged into the 
+Built-up/urban class (class 6), as the two classes are not reliably 
+distinguished by WorldCover in peri-urban transition zones such as the 
+Cambridge A14 corridor. This reduces the classification problem to six 
+land cover classes.
 
 ### K-Means Clustering (Unsupervised Baseline)
 K-Means partitions pixels into k clusters based on spectral similarity alone, 
 requiring no labelled training data. This serves as the unsupervised baseline — 
 demonstrating what structure exists in the data without any human annotation.
 
-k=7 clusters were used, matched to our class scheme. Cluster-to-class assignment 
-was performed by majority vote against WorldCover labels.
+k=7 clusters were used to allow the model to find natural groupings 
+within the data, subsequently mapped to 6 land cover classes by majority 
+vote against WorldCover labels.
 
 ### Random Forest (Supervised Baseline)
 Random Forest trains an ensemble of 200 decision trees on labelled pixels from 
@@ -303,7 +320,7 @@ Input: 15-feature stack per pixel. Training: 20 epochs on Colab T4 GPU.
 <p align="center">
   <img src="outputs/unet_diagram.png" width="800"style="border: 2px solid black;"/>
   <br>
-  <em>Figure 3. U-Net implementation pipeline for land cover classification across the Cambridge A14 corridor. The 15-feature input stack (10 Sentinel-2 optical features and 5 Sentinel-1 SAR features) is tiled into 64×64 pixel patches and split 70/30 along a hard spatial boundary to prevent data leakage. The U-Net encoder-decoder architecture learns spatial context across the patch neighbourhood, with skip connections preserving fine-grained boundary detail through the bottleneck. The trained model is applied consistently across all four epochs (2019, 2021, 2023, 2025), producing a per-pixel classification into six land cover classes. Change detection by direct map comparison yields a total conversion of 35.32 km² from agricultural and greenfield land to built-up/urban between 2019 and 2025, at a rate of approximately 5.9 km² per year.</em>
+  <em>Figure 4. U-Net implementation pipeline for land cover classification across the Cambridge A14 corridor. The 15-feature input stack (10 Sentinel-2 optical features and 5 Sentinel-1 SAR features) is tiled into 64×64 pixel patches and split 70/30 along a hard spatial boundary to prevent data leakage. The U-Net encoder-decoder architecture learns spatial context across the patch neighbourhood, with skip connections preserving fine-grained boundary detail through the bottleneck. The trained model is applied consistently across all four epochs (2019, 2021, 2023, 2025), producing a per-pixel classification into six land cover classes. Change detection by direct map comparison yields a total conversion of 35.32 km² from agricultural and greenfield land to built-up/urban between 2019 and 2025, at a rate of approximately 5.9 km² per year.</em>
 </p>
 
 ### Feature Stack
@@ -494,17 +511,26 @@ ESA Sentinel-2 Mission. European Space Agency. https://sentinel.esa.int
 
 ESA WorldCover 2020. https://esa-worldcover.org
 
-McFeeters, S.K. (1996). The use of the Normalized Difference Water Index (NDWI) 
-in the delineation of open water features. *International Journal of Remote Sensing*, 
-17(7), 1425–1432.
-
-Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional networks 
-for biomedical image segmentation. *MICCAI 2015*.
+Greater Cambridge Shared Planning (2023) Employment and Housing Evidence Update. Cambridge: GCSPS.
 
 Liang, S. (2001). Narrowband to broadband conversions of land surface albedo. 
 *Remote Sensing of Environment*, 76(2), 213–238.
 
+McFeeters, S.K. (1996). The use of the Normalized Difference Water Index (NDWI) 
+in the delineation of open water features. *International Journal of Remote Sensing*, 
+17(7), 1425–1432.
+
 RICS (2023). Whole Life Carbon Assessment for the Built Environment.
+
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional networks 
+for biomedical image segmentation. *MICCAI 2015*.
+
+South Cambridgeshire District Council (2019) Bourn Airfield New Village Supplementary Planning Document. Cambridge: SCDC.
+
+Swavesey Parish Council (2025) Logistics/Warehousing Development Proposals along the A14. Available at: https://www.swavesey-pc.gov.uk
+
+
+
 
 ---
 
