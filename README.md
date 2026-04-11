@@ -59,7 +59,7 @@ land to AI-related infrastructure across the Cambridge A14 corridor between 2019
 and 2025, and what is the environmental cost of the detection pipeline compared to 
 the infrastructure it detects?
 
-## The problem
+## The Problem
 
 The physical infrastructure of the AI economy — data centres, logistics 
 networks, semiconductor facilities — is expanding faster than any existing 
