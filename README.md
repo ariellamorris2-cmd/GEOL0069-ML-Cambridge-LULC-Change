@@ -487,6 +487,7 @@ This video walks through the complete machine learning pipeline — from satelli
 ## Contact
 
 Ariella Morris - ariella.morris.23@ucl.ac.uk / ariellamorris2@gmail.com
+
 Project Link: https://github.com/ariellamorris2-cmd/GEOL0069-ML-Cambridge-LULC-Change
 
 ---
