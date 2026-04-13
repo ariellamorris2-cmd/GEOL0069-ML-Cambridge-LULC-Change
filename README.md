@@ -478,7 +478,9 @@ like from 786 kilometres above the Earth.
 
 ## Video Walkthrough
 
-(https://www.youtube.com/watch?v=uZs7nwprXGM)
+[![The Footprint of Intelligence](https://img.youtube.com/vi/uZs7nwprXGM/maxresdefault.jpg)](https://www.youtube.com/watch?v=uZs7nwprXGM)
+
+This video walks through the complete machine learning pipeline — from satellite data acquisition via Google Earth Engine and feature engineering with Sentinel-1 and Sentinel-2 imagery, to the three classifiers, two key code decisions, change detection across four epochs, and the environmental impact assessment comparing pipeline emissions to the embodied carbon of the infrastructure detected.
 
 ---
 
