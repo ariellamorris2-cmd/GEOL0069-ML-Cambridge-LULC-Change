@@ -478,7 +478,7 @@ like from 786 kilometres above the Earth.
 
 ## Video Walkthrough
 
-[Link to video — add your video link here]
+(https://www.youtube.com/watch?v=uZs7nwprXGM)
 
 ---
 
